@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Streamer</title>
+	
+	<!-- Jquery -->
+	<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+	<div class="titleBar">
+		<h1>STREAMER</h1>
+	</div>
+
+	<div id="vidPlayer"></div>
+
+
+
+	<div id="testDiv">
+		
+
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/iZAqaykiS70" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		
+	</div>
+
+
+	<script src="http://www.youtube.com/player_api"></script>
+	<script type="text/javascript" src="./app.js"></script>
+	<script type="text/javascript">
+
+		var videoIDs = [
+						'k-lyPBro7fw',
+						'NhheiPTdZCw',
+						'10Jg_25ytU0',
+						'U8Kk3nD2Bh8',
+						'm8-tsi9AfoA',
+						'6XJkPtxqWM8',
+						'j58V2vC9EPc',
+						'L3dtIyt6U1E',
+						'FuBl6xYAp7o',
+						'B4px0qQrG5E',
+						'muMJtcXcM2c',
+						'hVW63Z_8deE',
+						'kG9CJvMI8wg',
+						'659pppwniXA',
+						'YQ1LI-NTa2s',
+						'oqrtoFWglMY',
+						'NUC2EQvdzmY',
+						'pELu_4DsCM4',
+						'8dHAWTzD5SE',
+						'b04Elfud97I',
+						'ie6plcFQ330',
+						'iZAqaykiS70'
+					];
+
+	    var player, currentVideoId = 0;
+
+	    function getRandomInt() {
+	    	var rand = Math.floor(Math.random() * videoIDs.length);
+	  		return rand;
+		}
+
+	    function onYouTubeIframeAPIReady() {
+	        player = new YT.Player('vidPlayer', { 
+	            height: '350',
+	            width: '425',
+	            videoId: "",
+	            events: {
+	                'onReady': onPlayerReady,
+	                'onStateChange': onPlayerStateChange
+	            }
+	        });
+	    }
+
+	    function onPlayerReady(event) {
+	    	var formattedId = new String(videoIDs[getRandomInt()]);
+	    	console.log(formattedId)
+	        event.target.loadVideoById(formattedId);
+	    }
+
+	    function onPlayerStateChange(event) {
+	    	console.log("event data");
+	    	console.log(event.data);
+	    	if(event.data == 3){
+	    		setTimeout(function(){
+	    			if(event.data == -1){
+						var formattedId = new String(videoIDs[getRandomInt()]);
+						console.log(formattedId);
+						event.target.loadVideoById(formattedId);
+					}	    				
+	    		}, 5000);
+	    	}
+	        if (event.data == YT.PlayerState.ENDED) {
+	        	var formattedId = new String(videoIDs[getRandomInt()]);
+	            // player.loadVideoById(videoIDs[formattedId]);
+	            console.log(formattedId);
+	            event.target.loadVideoById(formattedId);
+	        }
+	    }
+	</script>
+</body>
+</html>
