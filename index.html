@@ -8,15 +8,20 @@
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
+
+	<!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
 
 <body>
 	<div class="titleBar">
-		<h1>STREAMER</h1>
+		<h1 id="pageTitle">STREAMER</h1>
 	</div>
 
-	<div id="vidPlayer"></div>
+	<div id="main">
+		<div id="vidPlayer"></div>
+	</div>
 
 	<div id="testDiv"></div>
 
@@ -67,8 +72,8 @@
 
 	    function onYouTubeIframeAPIReady() {
 	        player = new YT.Player('vidPlayer', { 
-	            height: '350',
-	            width: '425',
+	            height: '700',
+	            width: '850',
 	            videoId: "",
 	            events: {
 	                'onReady': onPlayerReady,
