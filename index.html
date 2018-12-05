@@ -18,17 +18,10 @@
 
 	<div id="vidPlayer"></div>
 
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/BqnG_Ei35JE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	<div id="testDiv"></div>
 
 
-
-
-	<div id="testDiv">
-
-	</div>
-
-
-	<script src="http://www.youtube.com/player_api"></script>
+	<script src="https://www.youtube.com/player_api"></script>
 	<script type="text/javascript" src="./app.js"></script>
 	<script type="text/javascript">
 
@@ -92,8 +85,7 @@
 	    }
 
 	    function onPlayerStateChange(event) {
-	    	console.log("event data");
-	    	console.log(event.data);
+	    	console.log("event data: " + event.data);
 	    	if(event.data == 3){
 	    		setTimeout(function(){
 	    			if(event.data == -1){
