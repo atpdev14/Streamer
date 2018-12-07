@@ -1,6 +1,7 @@
 *{
 	padding: 0px;
 	margin: 0px;
+	background: black;
 
 }
 
@@ -8,7 +9,9 @@
 	color: white;
 	font-stretch: expanded;
 	letter-spacing: 8px;
-	font-size: 50px;
+	font-size: 100px;
+	font-family: 'Audiowide', cursive;
+	display: inline;
 }
 
 #main, .titleBar {
@@ -19,4 +22,8 @@
 	text-align: center;
 	margin: auto;
 	padding: auto;
+}
+
+#vidPlayer {
+	z-index: 200;
 }
